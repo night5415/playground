@@ -1,0 +1,24 @@
+{
+  "name": "playground",
+  "version": "1.0.0",
+  "description": "just my place to test stuff.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/night5415/playground.git"
+  },
+  "keywords": [
+    "js",
+    "html",
+    "css"
+  ],
+  "author": "Mike Meloy",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/night5415/playground/issues"
+  },
+  "homepage": "https://github.com/night5415/playground#readme"
+}
