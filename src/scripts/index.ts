@@ -1,14 +1,13 @@
-function runCode() {
-    console.log("hello World");
-}
-
 interface testing {
     target: {
         value: string
     }
 }
-
-
+interface user {
+    id: number,
+    name: string,
+    username: string
+}
 
 function setupTextArea() {
     const textArea = document.querySelector("textarea");
@@ -26,6 +25,34 @@ function setupTextArea() {
         me.value = '';
     });
 }
+function setupBrowserAutocomplete() {
+
+    fetch('https://jsonplaceholder.typicode.com/users')
+        .then(response => response.json() as Promise<user[]>)
+        .then(response => {
+            let list: string[] = response.map(x => x.name);
+            createStore<string>('browser', list); 
+        })
+        .catch(e => console.error('Failed to fetch', e));
+}
+/**
+ * Creates a datalist for input autocomplete.
+ * @param el id of the imput to attach the store to.
+ * @param values an array of string or numbers.
+ */
+function createStore<T>(el: string, values: T[]) {
+    const store = document.createElement('datalist'),
+        main = document.querySelector('main');
+
+    values.forEach(value => {
+        const data = document.createElement('option');
+        data.value = `${value}`
+        store.appendChild(data)
+    });
+
+    store.id = `${el}s`;
+    main?.appendChild(store);
+}
 
 document.addEventListener("DOMContentLoaded", () => {
     const ogLog = console.log,
@@ -39,5 +66,6 @@ document.addEventListener("DOMContentLoaded", () => {
         ogLog(data);
     };
     setupTextArea();
+    setupBrowserAutocomplete();
 });
-document.addEventListener("DOMContentLoaded", runCode);
+

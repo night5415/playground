@@ -25,6 +25,7 @@ pre {
 }
 textarea {
     position: absolute;
+    right: 0;
 }
 .blink {
   animation: blinky 1200ms infinite;
