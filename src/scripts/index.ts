@@ -20,9 +20,10 @@ function setupTextArea() {
     });
     textArea?.addEventListener("blur", function (this: HTMLTextAreaElement, ev: FocusEvent) {
         const me = this;
-
-        console.log(me.value);
-        me.value = '';
+        if (ev.target === me) {
+            console.log(me.value);
+            me.value = '';
+        } 
     });
 }
 function setupBrowserAutocomplete() {
@@ -31,7 +32,7 @@ function setupBrowserAutocomplete() {
         .then(response => response.json() as Promise<user[]>)
         .then(response => {
             let list: string[] = response.map(x => x.name);
-            createStore<string>('browser', list); 
+            createStore<string>('browser', list);
         })
         .catch(e => console.error('Failed to fetch', e));
 }
