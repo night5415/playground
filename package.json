@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "grunt": "grunt"
+    "grunt": "grunt",
+    "postbuild": "copy package.json dest/package.json && cd dest && npm install"
   },
   "repository": {
     "type": "git",
@@ -22,7 +23,9 @@
     "url": "https://github.com/night5415/playground/issues"
   },
   "homepage": "https://github.com/night5415/playground#readme",
-  "dependencies": {},
+  "dependencies": {
+    "lodash": "^4.17.20"
+  },
   "devDependencies": {
     "grunt": "^1.3.0",
     "grunt-contrib-clean": "^2.0.0",

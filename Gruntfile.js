@@ -19,7 +19,7 @@ module.exports = function (grunt) {
       build: {
         src: ['dest']
       },
-      all_ts: ['dest/scripts/*.ts']
+      all_ts: ['dest/scripts/*.ts', 'dest/modules/*.ts']
     },
     ts: {
       default : {
