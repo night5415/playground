@@ -10,9 +10,11 @@
     <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
     <script src="./scripts/index.js"></script>
     <script type="module">
-        import { add } from "./modules/math.js";
+        import { add, Unit } from "./modules/math.js";
         const value = add(1, 2, 3, 4, 4);
         console.log(`value = ${value}`);
+
+        window.mike = new Unit(2); 
     </script>
     <title>Playground</title>
 </head>
@@ -24,10 +26,38 @@
     <main dropzone="test">
         <textarea draggable="true" cols="30" rows="10"></textarea>
         <input list="browsers" name="browser" id="browser">
+
+        <hr>
+        <details>
+            <summary>People</summary>
+            <details>
+                <summary>Mike</summary>
+                <details>
+                    <summary>Avid Gamer</summary>
+                </details>
+                <details>
+                    <summary>Lover of Hamburgers</summary>
+                </details>
+            </details>
+            <details>
+                <summary>Tami</summary>
+                is an awesome woman
+            </details>
+        </details>
+        <hr>
+        <progress value="25" max="100"></progress>
+
     </main>
     <footer>
-
     </footer>
+    <script>
+        let progress = document.querySelector('progress');
+        setInterval(() => {
+            progress.value += .25;
+            if (progress.value == 100)
+                progress.value = 0;
+        }, 100);
+    </script>
 </body>
 
 </html>

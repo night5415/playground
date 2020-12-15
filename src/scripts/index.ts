@@ -23,7 +23,7 @@ function setupTextArea() {
         if (ev.target === me) {
             console.log(me.value);
             me.value = '';
-        } 
+        }
     });
 }
 function setupBrowserAutocomplete() {

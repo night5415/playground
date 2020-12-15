@@ -24,8 +24,15 @@ pre {
   padding: 10px;
 }
 textarea {
-    position: absolute;
-    right: 0;
+  position: absolute;
+  right: 0;
+}
+progress[value] {
+  height: 25px;
+  width: 100%;
+}
+details > details {
+  margin: 5px 20px;
 }
 .blink {
   animation: blinky 1200ms infinite;
