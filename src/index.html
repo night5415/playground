@@ -16,7 +16,30 @@
 
         window.mike = new Unit(2); 
     </script>
-    <title>Playground</title>
+    <script type="module">
+        import "./modules/progress.js";
+        import "./modules/flexy.js";
+    </script>
+    <script type="module">
+        const targetNode = document.querySelector('main'),
+            config = { attributes: true, childList: true, subtree: true },
+            callback = function (mutationsList, observer) {
+                for (const mutation of mutationsList) {
+                    if (mutation.type === 'childList') {
+                        console.log('A child node has been added or removed.');
+                    }
+                    else if (mutation.type === 'attributes') {
+                        console.log('The ' + mutation.attributeName + ' attribute was modified.');
+                    }
+                }
+            };
+
+        // Create an observer instance linked to the callback function
+        const observer = new MutationObserver(callback);
+        // Start observing the target node for configured mutations
+        observer.observe(targetNode, config); 
+    </script>
+    <title>Mike's Playground</title>
 </head>
 
 <body>
@@ -25,8 +48,8 @@
     </header>
     <main dropzone="test">
         <textarea draggable="true" cols="30" rows="10"></textarea>
+        <hr>
         <input list="browsers" name="browser" id="browser">
-
         <hr>
         <details>
             <summary>People</summary>
@@ -41,23 +64,18 @@
             </details>
             <details>
                 <summary>Tami</summary>
-                is an awesome woman
+                <details>
+                    <summary>Realtor</summary>
+                </details>
             </details>
         </details>
         <hr>
-        <progress value="25" max="100"></progress>
-
+        <me-progress></me-progress>
+        <hr>
+        <me-flex></me-flex>
     </main>
     <footer>
     </footer>
-    <script>
-        let progress = document.querySelector('progress');
-        setInterval(() => {
-            progress.value += .25;
-            if (progress.value == 100)
-                progress.value = 0;
-        }, 100);
-    </script>
 </body>
 
 </html>

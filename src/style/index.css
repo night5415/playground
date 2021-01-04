@@ -24,7 +24,7 @@ pre {
   padding: 10px;
 }
 textarea {
-  position: absolute;
+  position: relative;
   right: 0;
 }
 progress[value] {

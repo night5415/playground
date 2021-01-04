@@ -56,16 +56,16 @@ function createStore<T>(el: string, values: T[]) {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-    const ogLog = console.log,
-        main = document.querySelector("main");
+    // const ogLog = console.log,
+    //     main = document.querySelector("main");
 
-    console.log = function (data: any[]) {
-        const pre = document.createElement("pre");
+    // console.log = function (data: any[]) {
+    //     const pre = document.createElement("pre");
 
-        pre.innerHTML = data.join(',');
-        main?.appendChild(pre);
-        ogLog(data);
-    };
+    //     pre.innerHTML = data.join(',');
+    //     main?.appendChild(pre);
+    //     ogLog(data);
+    // };
     setupTextArea();
     setupBrowserAutocomplete();
 });
